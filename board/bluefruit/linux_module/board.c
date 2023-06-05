@@ -316,8 +316,8 @@ static void scale_vcores_bone(int freq)
 	 * Only perform PMIC configurations if board rev > A1
 	 * on Beaglebone White
 	 */
-	if (board_is_bone() && !strncmp(board_ti_get_rev(), "00A1", 4))
-		return;
+	//if (board_is_bone() && !strncmp(board_ti_get_rev(), "00A1", 4))
+		// return;
 
 #if !CONFIG_IS_ENABLED(DM_I2C)
 	if (i2c_probe(TPS65217_CHIP_PM))
@@ -809,7 +809,7 @@ int board_late_init(void)
 		name = "BBG1";
 	if (board_is_bben())
 		name = "BBEN";
-	set_board_info_env(name);
+	// set_board_info_env(name);
 
 	/*
 	 * Default FIT boot on HS devices. Non FIT images are not allowed
