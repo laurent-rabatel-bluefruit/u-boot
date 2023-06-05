@@ -1,0 +1,5 @@
+LINUX MODULE BOARD
+M:	Team Pathfinder <teampathfinder@bluefruit.co.uk >
+S:	Maintained
+F:	board/ti/am335x/
+F:	include/configs/am335x_linux_module
