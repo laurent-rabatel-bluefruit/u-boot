@@ -71,6 +71,21 @@ static struct module_pin_mux nand_pin_mux[] = {
 };
 #endif
 
+static struct module_pin_mux mmc0_pin_mux[] = {
+	{OFFSET(mmc0_dat3), (MODE(0) | RXACTIVE)},	/* MMC0_DAT3 */
+	{OFFSET(mmc0_dat2), (MODE(0) | RXACTIVE)},	/* MMC0_DAT2 */
+	{OFFSET(mmc0_dat1), (MODE(0) | RXACTIVE)},	/* MMC0_DAT1 */
+	{OFFSET(mmc0_dat0), (MODE(0) | RXACTIVE)},	/* MMC0_DAT0 */
+	{OFFSET(mmc0_clk), (MODE(0) | RXACTIVE)},	/* MMC0_CLK */
+	{OFFSET(mmc0_cmd), (MODE(0) | RXACTIVE)},	/* MMC0_CMD */
+	{-1},
+};
+
+static struct module_pin_mux usb_drv_pin_mux[] = {
+	{OFFSET(usb0_drvvbus), (MODE(0) | PULLUDEN)},
+	{-1},
+};
+
 void enable_uart0_pin_mux(void)
 {
 	configure_module_pin_mux(uart0_pin_mux);
@@ -104,6 +119,9 @@ void enable_uart5_pin_mux(void)
 void enable_board_pin_mux(void)
 {
 #if defined(CONFIG_MTD_RAW_NAND)
-	//configure_module_pin_mux(nand_pin_mux);
+	configure_module_pin_mux(nand_pin_mux);
 #endif
+	configure_module_pin_mux(mmc0_pin_mux);
+
+	configure_module_pin_mux(usb_drv_pin_mux);
 }

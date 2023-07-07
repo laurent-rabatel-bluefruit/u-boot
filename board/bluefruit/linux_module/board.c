@@ -209,3 +209,9 @@ void board_fit_image_post_process(void **p_image, size_t *p_size)
 	secure_boot_verify_image(p_image, p_size);
 }
 #endif
+
+int board_mmc_init(struct bd_info *bis)
+{
+	return omap_mmc_init(0, 0, 0, -1, -1);
+}
+
