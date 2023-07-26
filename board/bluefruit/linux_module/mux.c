@@ -82,7 +82,7 @@ static struct module_pin_mux mmc0_pin_mux[] = {
 };
 
 static struct module_pin_mux usb_drv_pin_mux[] = {
-	{OFFSET(usb0_drvvbus), (MODE(0) | PULLUDEN)},
+	{OFFSET(usb0_drvvbus), (MODE(0) | PULLDOWN_EN)},
 	{-1},
 };
 

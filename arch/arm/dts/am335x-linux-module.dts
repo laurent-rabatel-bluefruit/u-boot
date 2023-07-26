@@ -229,7 +229,7 @@
 
 	myusb1_pins_default: myusb1_pins_default {
 		pinctrl-single,pins = <
-			AM33XX_IOPAD(0xa1c, PIN_OUTPUT | MUX_MODE0) /* (G16) USB0_DRVVBUS.USB0_DRVVBUS */
+			AM33XX_IOPAD(0xa1c, PIN_OUTPUT_PULLDOWN | MUX_MODE0) /* (G16) USB0_DRVVBUS.USB0_DRVVBUS */
 		>;
 	};
 
