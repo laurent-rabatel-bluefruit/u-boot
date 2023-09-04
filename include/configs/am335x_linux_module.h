@@ -211,8 +211,6 @@
  */
 #define CONFIG_AM335X_USB0
 #define CONFIG_AM335X_USB0_MODE	MUSB_HOST
-#define CONFIG_AM335X_USB1
-#define CONFIG_AM335X_USB1_MODE MUSB_PERIPHERAL
 
 /*
  * Disable MMC DM for SPL build and can be re-enabled after adding
