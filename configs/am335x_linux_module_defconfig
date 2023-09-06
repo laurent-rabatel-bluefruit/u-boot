@@ -13,7 +13,7 @@ CONFIG_DEBUG_UART=y
 CONFIG_DISTRO_DEFAULTS=y
 CONFIG_SPL_LOAD_FIT=y
 # CONFIG_USE_SPL_FIT_GENERATOR is not set
-CONFIG_BOOTCOMMAND="load mmc 0:2 ${loadaddr} /boot/uImage;load mmc 0:2 ${fdtaddr} /boot/platform-boneblack.dtb;setenv linuxbootargs "setenv bootargs console=${console} loglevel=15 root=/dev/mmcblk0p2 rw rootfstype=ext4 rootwait";run linuxbootargs; bootm ${loadaddr} - ${fdtaddr}"
+CONFIG_BOOTCOMMAND="nand read ${loadaddr} NAND.kernel;nand read ${fdtaddr} NAND.u-boot-spl-os;setenv linuxbootargs "setenv bootargs console=${console} root=ubi0:rootfs rw ubi.mtd=NAND.file-system,4096 rootfstype=ubifs rootwait";run linuxbootargs; bootm ${loadaddr} - ${fdtaddr}"
 CONFIG_LOGLEVEL=3
 CONFIG_SYS_CONSOLE_INFO_QUIET=y
 CONFIG_LOG=y
@@ -40,7 +40,7 @@ CONFIG_CMD_NAND=y
 CONFIG_BOOTP_DNS2=y
 CONFIG_CMD_MTDPARTS=y
 CONFIG_MTDIDS_DEFAULT="nand0=nand.0"
-CONFIG_MTDPARTS_DEFAULT="mtdparts=nand.0:256k(NAND.SPL),1m(NAND.u-boot),256k(NAND.u-boot-env),-(NAND.file-system)"
+CONFIG_MTDPARTS_DEFAULT="mtdparts=nand.0:256k(NAND.SPL),256k(NAND.SPL.backup1),256k(NAND.SPL.backup2),256k(NAND.SPL.backup3),256k(NAND.u-boot-spl-os),1m(NAND.u-boot),256k(NAND.u-boot-env),256k(NAND.u-boot-env.backup1),8m(NAND.kernel),-(NAND.file-system)"
 # CONFIG_SPL_EFI_PARTITION is not set
 CONFIG_OF_CONTROL=y
 CONFIG_ENV_OVERWRITE=y
