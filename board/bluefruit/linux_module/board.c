@@ -214,4 +214,3 @@ int board_mmc_init(struct bd_info *bis)
 {
 	return omap_mmc_init(0, 0, 0, -1, -1);
 }
-
